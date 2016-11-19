@@ -22,6 +22,10 @@
     "properties",
     "json"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mk1990/Properties2JsonPlugin"
+  },
   "author": "Michal Kurcius",
   "license": "MIT"
 }
