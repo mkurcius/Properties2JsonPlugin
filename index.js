@@ -24,6 +24,7 @@ Properties2JsonPlugin.prototype.apply = function (compiler) {
 };
 
 function worker(obj, compilation) {
+  console.info(`[Properties2JsonPlugin] Creating:: ${obj.output}`);
   return globby(obj.files).then(filea => {
     let json = propertiesToJson(filea);
     filea.forEach(file => {
