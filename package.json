@@ -1,6 +1,6 @@
 {
   "name": "properties-2-json-webpack-plugin",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Webpack plugin for converting .properties files into .json file",
   "main": "index.js",
   "scripts": {
