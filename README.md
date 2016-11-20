@@ -3,7 +3,7 @@ Webpack plugin for converting .properties files into .json file
 
 ## Installation
 ```
-npm install properties-2-json-webpack-plugin
+npm install properties-2-json-webpack-plugin --save-dev
 ```
 
 ## Usage
