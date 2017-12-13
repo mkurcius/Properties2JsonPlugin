@@ -1,6 +1,7 @@
 const globby = require('globby');
-const properties = require('properties-parser');
+const properties = require('properties');
 const path = require("path");
+const fs = require('fs');
 const extend = require('util')._extend;
 
 function Properties2JsonPlugin(options) {
@@ -26,7 +27,7 @@ Properties2JsonPlugin.prototype.apply = function (compiler) {
 function worker(obj, compilation) {
   console.info(`[Properties2JsonPlugin] Creating:: ${obj.output}`);
   return globby(obj.files).then(filea => {
-    let json = propertiesToJson(filea);
+    let json = propertiesToJson(filea, obj.options);
     filea.forEach(file => {
       file = path.resolve(compilation.compiler.context, file);
       compilation.fileDependencies.push(file);
@@ -39,12 +40,12 @@ function worker(obj, compilation) {
   });
 }
 
-function propertiesToJson(paths) {
+function propertiesToJson(paths, options) {
   let json = {};
   paths.forEach(path => {
-    extend(json, properties.read(path));
+    let file = fs.readFileSync(path, 'utf8')
+    extend(json, properties.parse(file, options));
   });
-
   return JSON.stringify(json);
 }
 

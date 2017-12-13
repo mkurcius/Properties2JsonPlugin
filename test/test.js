@@ -28,7 +28,10 @@ describe('webpack', function () {
       plugins: [
         new Properties2JsonPlugin({
           files: ["**/*_pl.properties"],
-          output: expected
+          output: expected,
+          options: {
+            namespaces: true
+          }
         })
       ]
     };

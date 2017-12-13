@@ -23,6 +23,18 @@ module.exports = {
 }
 ```
 
+## Support options
+[npm/properties](https://github.com/gagle/node-properties)
+```js
+new Properties2JsonPlugin({
+  files: ["**/*_pl.properties"],
+  output: 'pl.json',
+  options: {
+    namespaces: true
+  }
+})
+```
+
 ## Tests
 ```
 npm test
