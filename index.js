@@ -28,6 +28,9 @@ function worker(obj, compilation) {
   console.info(`[Properties2JsonPlugin] Creating:: ${obj.output}`);
   return globby(obj.files).then(filea => {
     let json = propertiesToJson(filea, obj.options);
+    if (obj.jsFile) {
+      json = "module.exports = " + json;
+    }
     filea.forEach(file => {
       file = path.resolve(compilation.compiler.context, file);
       compilation.fileDependencies.push(file);
