@@ -35,6 +35,16 @@ new Properties2JsonPlugin({
 })
 ```
 
+## Save for JS
+Adds `module.exports = ...` to json output
+```js
+new Properties2JsonPlugin({
+  files: ["**/*_pl.properties"],
+  output: 'pl.json',
+  jsFile: true
+})
+```
+
 ## Tests
 ```
 npm test
